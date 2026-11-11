@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 /**
  * A min-heap. 
@@ -36,9 +37,10 @@ public class Heap {
     public void add(int num) {
         if (size == 0) {
             arr.add(num);
+            size++;
             return;
         }
-        
+
         arr.add(num);
         int index = size;
 
@@ -53,5 +55,53 @@ public class Heap {
         }
 
         size++;
+    }
+
+    public int pop() {
+        if (size == 0) throw new NoSuchElementException();
+        if (size == 1) {
+            size--;
+            return arr.remove(0);
+        }
+        
+        int root = arr.get(0);
+        int last = arr.get(size - 1);
+
+        arr.set(0, last);
+        arr.set(size - 1, root);
+
+        int removed = arr.remove(size - 1);
+        size--;
+
+        int index = 0;
+
+        while (index * 2 + 1 < size) {
+            int current = arr.get(index);
+            int left = index * 2 + 1;
+            int right = index * 2 + 2;
+            int childIndex;
+ 
+            if (right < size) {
+                if (arr.get(left) < arr.get(right)) childIndex = left;
+                else childIndex = right;
+
+                int child = arr.get(childIndex);
+
+                if (current <= child) break;
+
+                arr.set(index, child);
+                arr.set(childIndex, current);
+                index = childIndex;
+            } else {
+                int child = arr.get(left);
+                if (current <= child) break;
+
+                arr.set(index, child);
+                arr.set(left, current);
+                index = left;
+            }
+        }
+
+        return removed;
     }
 }
