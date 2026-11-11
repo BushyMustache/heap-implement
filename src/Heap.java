@@ -63,7 +63,7 @@ public class Heap {
             size--;
             return arr.remove(0);
         }
-        
+
         int root = arr.get(0);
         int last = arr.get(size - 1);
 
@@ -103,5 +103,19 @@ public class Heap {
         }
 
         return removed;
+    }
+
+    public int peek() {
+        if (size == 0) throw new NoSuchElementException();
+        return arr.get(0);
+    }
+
+    public int size() {
+        return size;
+    }
+
+    public boolean isEmpty() {
+        if (size == 0) return true;
+        return false;
     }
 }
