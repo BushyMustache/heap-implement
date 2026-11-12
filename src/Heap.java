@@ -27,7 +27,7 @@ import java.util.NoSuchElementException;
  */
 public class Heap {
     private int size;
-    private List<Integer> arr;
+    private final List<Integer> arr;
 
     public Heap() {
         size = 0;
@@ -44,7 +44,7 @@ public class Heap {
         arr.add(num);
         int index = size;
 
-        while (arr.get(index) < arr.get((index - 1) / 2)) {
+        while (index > 0 && arr.get(index) < arr.get((index - 1) / 2)) {
             int current = arr.get(index);
             int parent = arr.get((index - 1) / 2);
 
