@@ -27,7 +27,7 @@ Then, copy your Heap implementation to an AI along with this message:
 ```
 I am a Java student learning about heaps and wanting to practice good OOP. WITHOUT JUST REWRITING THE CODE FOR ME, please let me know what parts of this are and are not idiomatic, and help me spot any bugs:
 ```
-
+ 
 Take its feedback seriously but skeptically. Don't feel like you have to agree with everything it says! Use it to help you guide how to improve your solution. Implement some of its feedback, paste back the new version of the code and see what it thinks. Make commits as you go! Iterate on this for a while until you've reached a clean solution.
 
 You may consider starting multiple conversations with multiple AIs. Make sure you keep a log of all the conversations, you will be turning them in.
