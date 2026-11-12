@@ -119,6 +119,6 @@ public class Heap {
     }
 
     public List<Integer> values() {
-        return arr;
+        return List.copyOf(arr);
     }
 }
