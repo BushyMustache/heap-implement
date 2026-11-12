@@ -118,4 +118,8 @@ public class Heap {
         if (size == 0) return true;
         return false;
     }
+
+    public List<Integer> values() {
+        return arr;
+    }
 }
