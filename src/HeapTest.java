@@ -82,9 +82,63 @@ public class HeapTest {
     }
 
     @Test
-    public void testExceptionWhenTryingToPopAnEmptyHeap() {
+    public void testExceptionThrownWhenTryingToPopAnEmptyHeap() {
         Heap heap = new Heap();
 
         assertThrows(NoSuchElementException.class, () -> heap.pop());
+    }
+
+    // peek()
+    @Test
+    public void testIfPeekReturnsTheSmallesValue() {
+        Heap heap = new Heap();
+
+        for (int i = 20; i >= 1; i--) {
+            heap.add(i);
+        }
+
+        assertEquals(1, heap.peek());
+    }
+
+    @Test
+    public void testExceptionThrownWhenTryingToPeekInAnEmptyHeap() {
+        Heap heap = new Heap();
+
+        assertThrows(NoSuchElementException.class, () -> heap.peek());
+    }
+
+    // isEmpty()
+    @Test
+    public void testIsEmptyOnAnEmptyHeap() {
+        Heap heap = new Heap();
+
+        assertTrue(heap.isEmpty());
+    }
+
+    @Test
+    public void testIsEmptyOnAnNotEmptyHeap() {
+        Heap heap = new Heap();
+        heap.add(1);
+        
+        assertFalse(heap.isEmpty());
+    }
+
+    // size()
+    @Test
+    public void testSizeWithAHeapWithValues() {
+        Heap heap = new Heap();
+
+        for (int i = 1; i <= 10; i++) {
+            heap.add(i);
+        }
+
+        assertEquals(10, heap.size());
+    }
+
+    @Test
+    public void testSizeWithAnEmptyHeap() {
+        Heap heap = new Heap();
+
+        assertEquals(0, heap.size());
     }
 }
