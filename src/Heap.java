@@ -115,8 +115,7 @@ public class Heap {
     }
 
     public boolean isEmpty() {
-        if (size == 0) return true;
-        return false;
+        return size == 0;
     }
 
     public List<Integer> values() {
